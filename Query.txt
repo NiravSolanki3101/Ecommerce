@@ -1,0 +1,33 @@
+React
+React is a JavaScript library created by Facebook
+React is a User Interface (UI) library
+React is a tool for building UI components
+
+component
+Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
+
+state
+The state is a built-in React object that is used to contain data or information about the component.
+
+prop
+Props is a special keyword in React that stands for properties and is used for passing data from one component to another.
+
+diff between library and freamwork
+
+
+redux
+Redux is a JavaScript library that helps manage the state of an application.
+[works as a database for state management]
+
+provider
+The Provider component makes the Redux store available to any nested components that need to access the Redux store
+
+dipatch
+
+useEffect, useSelector, useState, useDespatch
+
+
+JWT 
+
+
+authentication vs autharaization
