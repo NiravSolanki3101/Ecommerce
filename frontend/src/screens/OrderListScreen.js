@@ -32,7 +32,7 @@ function OrderListScreen() {
 
     return (
         <div>
-            <h1>Orders</h1>
+            <h3>Orders</h3>
             {loading
                 ? (<Loader />)
                 : error
@@ -73,9 +73,9 @@ function OrderListScreen() {
                                             )}
                                         </td>
 
-                                        <td>
+                                        <td className='d-flex justify-content-center'>
                                             <LinkContainer to={`/order/${order._id}`}>
-                                                <Button variant='light' className='btn-sm'>
+                                                <Button variant='primary' className='btn-sm'>
                                                     Details
                                                 </Button>
                                             </LinkContainer>

@@ -54,7 +54,7 @@ function PlaceOrderScreen() {
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h2>Shipping</h2>
+                            <h3>Shipping</h3>
 
                             <p>
                                 <strong>Shipping: </strong>
@@ -67,7 +67,7 @@ function PlaceOrderScreen() {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Payment Method</h2>
+                            <h3>Payment Method</h3>
                             <p>
                                 <strong>Method: </strong>
                                 {cart.paymentMethod}
@@ -75,7 +75,7 @@ function PlaceOrderScreen() {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Order Items</h2>
+                            <h3>Order Items</h3>
                             {cart.cartItems.length === 0 ? <Message variant='info'>
                                 Your cart is empty
                             </Message> : (
@@ -141,14 +141,16 @@ function PlaceOrderScreen() {
                             </ListGroup.Item>
 
 
+                            {error && 
                             <ListGroup.Item>
-                                {error && <Message variant='danger'>{error}</Message>}
+                                <Message variant='danger'>{error}</Message>
                             </ListGroup.Item>
+                            }
 
                             <ListGroup.Item>
                                 <Button
                                     type='button'
-                                    className='btn-block'
+                                    className='btn-block w-100'
                                     disabled={cart.cartItems === 0}
                                     onClick={placeOrder}
                                 >

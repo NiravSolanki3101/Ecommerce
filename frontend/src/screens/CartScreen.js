@@ -38,7 +38,7 @@ function CartScreen()
     return(
          <Row>
             <Col md={8}>
-                <h1>Shopping Cart</h1>
+                <h3>Shopping Cart</h3>
                 {cartItems.length === 0 ? (
                     <Message variant='info'>
                         Your cart is empty <Link to='/'>Go Back</Link>
@@ -47,7 +47,7 @@ function CartScreen()
                         <ListGroup variant='flush'>
                             {cartItems.map(item => (
                                 <ListGroup.Item key={item.product}>
-                                    <Row>
+                                    <Row className='d-flex align-items-center'>
                                         <Col md={2}>
                                             <Image src={item.image} alt={item.name} fluid rounded />
                                         </Col>
@@ -60,11 +60,11 @@ function CartScreen()
                                         </Col>
 
                                         <Col md={3}>                                        
-                                            <Row>
+                                            <Row > 
                                                 <Col>
                                                     <Button variant="outline-secondary btn-sm" onClick={() =>  dispatch(addToCart(item.product, item.qty-1))} disabled = {item.qty==0}>-</Button>
                                                 </Col>
-                                                <Col className='' style={{margin: "auto"}}>
+                                                <Col className="d-flex justify-content-center align-items-center">
                                                     {item.qty}
                                                 </Col>
                                                 <Col>
@@ -93,7 +93,7 @@ function CartScreen()
                 <Card>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
+                            <h4>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h4>
                             ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
                         </ListGroup.Item>
                     </ListGroup>

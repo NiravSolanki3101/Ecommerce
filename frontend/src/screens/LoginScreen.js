@@ -34,7 +34,7 @@ function LoginScreen()
 
     return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h3>Sign In</h3>
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
@@ -62,12 +62,12 @@ function LoginScreen()
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='primary' className=''>
+                <Button type='submit' variant='primary' className='my-3 w-100'>
                     Sign In
                 </Button>
             </Form>
 
-            <Row className='py-3'>
+            <Row>
                 <Col>
                     New Customer? <Link
                         to={redirect ? `/register?redirect=${redirect}` : '/register'}>

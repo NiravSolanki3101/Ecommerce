@@ -43,7 +43,7 @@ function RegisterScreen() {
 
     return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h3>Sign In</h3>
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
@@ -97,13 +97,13 @@ function RegisterScreen() {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='primary'>
+                <Button type='submit' variant='primary' className='my-3 w-100'>
                     Register
                 </Button>
 
             </Form>
 
-            <Row className='py-3'>
+            <Row>
                 <Col>
                     Have an Account? <Link
                         to={redirect ? `/login?redirect=${redirect}` : '/login'}>

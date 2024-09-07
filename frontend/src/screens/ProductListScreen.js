@@ -30,15 +30,16 @@ function ProductListScreen() {
 
     let keyword = searchParams.get('keyword')
     let page_number = searchParams.get('page')
-    if(!keyword)
-    {
-        keyword = ''
-    }
-    if(!page_number)
-    {
-        page_number = 1
-    }
+
     useEffect(() => {
+        if(!keyword)
+        {
+            keyword = ''
+        }
+        if(!page_number)
+        {
+            page_number = 1
+        }
         dispatch({ type: PRODUCT_CREATE_RESET })
 
         if (!userInfo.isAdmin) {
@@ -51,7 +52,7 @@ function ProductListScreen() {
             dispatch(listProducts(keyword,page_number))
         }
 
-    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, keyword])
+    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, keyword,page_number])
 
 
     const deleteHandler = (id) => {
@@ -69,10 +70,10 @@ function ProductListScreen() {
         <div>
             <Row className='align-items-center'>
                 <Col>
-                    <h1>Products</h1>
+                    <h3>Products</h3>
                 </Col>
 
-                <Col className='text-right'>
+                <Col className='d-flex justify-content-end'>
                     <Button className='my-3' onClick={createProductHandler}>
                         <i className='fas fa-plus'></i> Create Product
                     </Button>
@@ -113,7 +114,7 @@ function ProductListScreen() {
                                             <td>{product.category}</td>
                                             <td>{product.brand}</td>
 
-                                            <td>
+                                            <td className='d-flex justify-content-evenly'>
                                                 <LinkContainer to={`/admin/product/${product._id}/edit`}>
                                                     <Button variant='light' className='btn-sm'>
                                                         <i className='fas fa-edit'></i>
@@ -128,7 +129,9 @@ function ProductListScreen() {
                                     ))}
                                 </tbody>
                             </Table>
-                            <Paginate pages={pages} page={page} isAdmin={true} />
+                            <div className='d-flex justify-content-center'>
+                                <Paginate pages={pages} page={page} isAdmin={true} />
+                            </div>
                         </div>
                     )}
         </div>

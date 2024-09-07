@@ -67,7 +67,7 @@ function ProfileScreen({ history }) {
     return (
         <Row>
             <Col md={3}>
-                <h2>User Profile</h2>
+                <h3>User Profile</h3>
 
                 {message && <Message variant='danger'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
@@ -122,7 +122,7 @@ function ProfileScreen({ history }) {
                         </Form.Control>
                     </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button type='submit' variant='primary' className='my-3 w-100'>
                         Update
                 </Button>
 
@@ -130,7 +130,7 @@ function ProfileScreen({ history }) {
             </Col>
 
             <Col md={9}>
-                <h2>My Orders</h2>
+                <h3>My Orders</h3>
                 {loadingOrders ? (
                     <Loader />
                 ) : errorOrders ? (

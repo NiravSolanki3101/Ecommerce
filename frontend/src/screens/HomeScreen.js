@@ -8,6 +8,10 @@ import Paginate from '../components/Paginate'
 import ProductCarousel from '../components/ProductCarousel'
 import { listProducts } from '../actions/productActions'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import Stack from 'react-bootstrap/Stack';
+
+
+
 
 
 function HomeScreen() {
@@ -38,23 +42,23 @@ function HomeScreen() {
         <div>
             {!keyword && <ProductCarousel />}
 
-            <h1>Latest Products</h1>
+            <h2>Latest Products</h2>
             {loading ? <Loader />
                 : error ? <Message variant='danger'>{error}</Message>
                     :
                     <div>
-                        <Row>
+                        <Row className="my-3">
                             {products.map(product => (
                                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                     <Product product={product} />
                                 </Col>
                             ))}
                         </Row>
-                        <Row>
-                            <Col>
-                                <Paginate page={page} pages={pages} keyword={keyword} />
-                            </Col>
-                        </Row>
+                            <Row>
+                                <Col className='d-flex justify-content-center'>
+                                    <Paginate page={page} pages={pages} keyword={keyword} />
+                                </Col>
+                            </Row>
                     </div>
             }
         </div>

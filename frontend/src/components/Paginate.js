@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Pagination } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { createSearchParams } from 'react-router-dom'
 
 function Paginate({ pages, page, keyword = '', isAdmin = false }) {
+
+    let pathname = "";
+
     if (!keyword) {
         keyword = ""
     }
-
-    let pathname = "";
 
     if(!isAdmin)
     {
@@ -32,7 +33,8 @@ function Paginate({ pages, page, keyword = '', isAdmin = false }) {
                         }).toString()
                     }}
                 >
-                    <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
+                    <Pagination.Item active={x + 1 === page} className={`${x + 1 === page ? "pagination active" : "pagination deactive"}`}>{x + 1}</Pagination.Item>
+                    {/* <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item> */}
                 </LinkContainer>
             ))}
         </Pagination>

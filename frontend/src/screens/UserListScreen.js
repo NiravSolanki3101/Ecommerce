@@ -41,7 +41,7 @@ function UserListScreen() {
 
     return (
         <div>
-            <h1>Users</h1>
+            <h3>Users</h3>
             {loading
                 ? (<Loader />)
                 : error
@@ -70,7 +70,7 @@ function UserListScreen() {
                                                 <i className='fas fa-xmark' style={{ color: 'red' }}></i>
                                             )}</td>
 
-                                        <td>
+                                        <td className='d-flex justify-content-evenly'>
                                             <LinkContainer to={`/admin/user/${user._id}/edit`}>
                                                 <Button variant='light' className='btn-sm'>
                                                     <i className='fas fa-edit'></i>

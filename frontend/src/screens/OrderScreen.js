@@ -28,11 +28,7 @@ function OrderScreen({ }) {
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-
-
-    
-
-
+ 
     const addPayPalScript = () => {
         const script = document.createElement('script')
         script.type = 'text/javascript'
@@ -84,12 +80,12 @@ function OrderScreen({ }) {
         <Message variant='danger'>{error}</Message>
     ) : (
                 <div>
-                    <h1>Order: {order.Id}</h1>
+                    <h2>Order: {order.Id}</h2>
                     <Row>
                         <Col md={8}>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
-                                    <h2>Shipping</h2>
+                                    <h3>Shipping</h3>
                                     <p><strong>Name: </strong> {order.user.name}</p>
                                     <p><strong>Email: </strong><a href={`mailto:${order.user.email}`}>{order.user.email}</a></p>
                                     <p>
@@ -109,7 +105,7 @@ function OrderScreen({ }) {
                                 </ListGroup.Item>
 
                                 <ListGroup.Item>
-                                    <h2>Payment Method</h2>
+                                    <h3>Payment Method</h3>
                                     <p>
                                         <strong>Method: </strong>
                                         {order.paymentMethod}
@@ -123,7 +119,7 @@ function OrderScreen({ }) {
                                 </ListGroup.Item>
 
                                 <ListGroup.Item>
-                                    <h2>Order Items</h2>
+                                    <h3>Order Items</h3>
                                     {order.orderItems.length === 0 ? <Message variant='info'>
                                         Order is empty
                             </Message> : (
@@ -157,7 +153,7 @@ function OrderScreen({ }) {
                             <Card>
                                 <ListGroup variant='flush'>
                                     <ListGroup.Item>
-                                        <h2>Order Summary</h2>
+                                        <h3>Order Summary</h3>
                                     </ListGroup.Item>
 
                                     <ListGroup.Item>
