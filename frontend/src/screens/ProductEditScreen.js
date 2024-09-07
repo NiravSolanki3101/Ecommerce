@@ -101,12 +101,12 @@ function ProductEditScreen() {
 
     return (
         <div>
-            <Link to='/admin/productlist'>
+            <Link to='/admin/productlist' className='btn btn-light my-3'>
                 Go Back
             </Link>
 
             <FormContainer>
-                <h1>Edit Product</h1>
+                <h3>Edit Product</h3>
                 {loadingUpdate && <Loader />}
                 {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 
@@ -213,7 +213,7 @@ function ProductEditScreen() {
                             </Form.Group>
 
 
-                            <Button type='submit' variant='primary'>
+                            <Button type='submit' variant='primary' className='my-3'>
                                 Update
                             </Button>
 

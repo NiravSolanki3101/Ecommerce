@@ -7,7 +7,7 @@ function Footer(){
             <Container>
                 <Row>
                     <Col className='text-center py-3'>
-                        Copyright &copy; NS
+                        Copyright &copy; Shop Zone
                     </Col>
                 </Row>
             </Container>

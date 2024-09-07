@@ -24,7 +24,7 @@ function OrderScreen({ }) {
     const { loading: loadingPay, success: successPay } = orderPay
 
     const orderDeliver = useSelector(state => state.orderDeliver)
-    const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+    const { loading: loadingDeliver, success: successDeliver, error: errorDeliver } = orderDeliver
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
@@ -98,7 +98,7 @@ function OrderScreen({ }) {
                                     </p>
 
                                     {order.isDelivered ? (
-                                        <Message variant='success'>Delivered on {order.deliveredAt}</Message>
+                                        <Message variant='success'>Delivered on {order.deliveredAt.substring(0, 10)}</Message>
                                     ) : (
                                             <Message variant='warning'>Not Delivered</Message>
                                         )}
@@ -111,7 +111,7 @@ function OrderScreen({ }) {
                                         {order.paymentMethod}
                                     </p>
                                     {order.isPaid ? (
-                                        <Message variant='success'>Paid on {order.paidAt}</Message>
+                                        <Message variant='success'>Paid on {order.paidAt.substring(0, 10)}</Message>
                                     ) : (
                                             <Message variant='warning'>Not Paid</Message>
                                         )}
@@ -136,7 +136,7 @@ function OrderScreen({ }) {
                                                             </Col>
 
                                                             <Col md={4}>
-                                                                {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                                {item.qty} X &#8377; {item.price} = &#8377; {(item.qty * item.price).toFixed(2)}
                                                             </Col>
                                                         </Row>
                                                     </ListGroup.Item>
@@ -159,28 +159,28 @@ function OrderScreen({ }) {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Items:</Col>
-                                            <Col>${order.itemsPrice}</Col>
+                                            <Col>&#8377; {order.itemsPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Shipping:</Col>
-                                            <Col>${order.shippingPrice}</Col>
+                                            <Col>&#8377; {order.shippingPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Tax:</Col>
-                                            <Col>${order.taxPrice}</Col>
+                                            <Col>&#8377; {order.taxPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Total:</Col>
-                                            <Col>${order.totalPrice}</Col>
+                                            <Col>&#8377; {order.totalPrice}</Col>
                                         </Row>
                                     </ListGroup.Item>
 
@@ -199,19 +199,21 @@ function OrderScreen({ }) {
                                                 )}
                                         </ListGroup.Item>
                                     )}
+
+                                    {loadingDeliver && <Loader />}
+                                    {errorDeliver && <Message variant='danger' className="my-3 w-80">{errorDeliver}</Message>}
+                                    {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                        <ListGroup.Item>
+                                            <Button
+                                                type='button'
+                                                className='btn btn-block w-100'
+                                                onClick={deliverHandler}
+                                            >
+                                                Mark As Delivered
+                                            </Button>
+                                        </ListGroup.Item>
+                                    )}
                                 </ListGroup>
-                                {loadingDeliver && <Loader />}
-                                {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                                    <ListGroup.Item>
-                                        <Button
-                                            type='button'
-                                            className='btn btn-block'
-                                            onClick={deliverHandler}
-                                        >
-                                            Mark As Delivered
-                                        </Button>
-                                    </ListGroup.Item>
-                                )}
                             </Card>
                         </Col>
                     </Row>

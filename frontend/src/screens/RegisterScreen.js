@@ -43,7 +43,7 @@ function RegisterScreen() {
 
     return (
         <FormContainer>
-            <h3>Sign In</h3>
+            <h3>Register</h3>
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}

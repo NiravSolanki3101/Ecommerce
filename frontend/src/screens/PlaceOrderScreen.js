@@ -31,7 +31,7 @@ function PlaceOrderScreen() {
     useEffect(() => {
         if (success) {
             navigate(`/order/${order._id}`)
-            // dispatch({ type: ORDER_CREATE_RESET })
+            dispatch({ type: ORDER_CREATE_RESET })
         }
     }, [success])
 
@@ -92,7 +92,7 @@ function PlaceOrderScreen() {
                                                     </Col>
 
                                                     <Col md={4}>
-                                                        {item.qty} X ${item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                        {item.qty} X &#8377; {item.price} = &#8377; {(item.qty * item.price).toFixed(2)}
                                                     </Col>
                                                 </Row>
                                             </ListGroup.Item>
@@ -115,28 +115,28 @@ function PlaceOrderScreen() {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Items:</Col>
-                                    <Col>${cart.itemsPrice}</Col>
+                                    <Col>&#8377; {cart.itemsPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Shipping:</Col>
-                                    <Col>${cart.shippingPrice}</Col>
+                                    <Col>&#8377; {cart.shippingPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Tax:</Col>
-                                    <Col>${cart.taxPrice}</Col>
+                                    <Col>&#8377; {cart.taxPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
 
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Total:</Col>
-                                    <Col>${cart.totalPrice}</Col>
+                                    <Col>&#8377; {cart.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
 

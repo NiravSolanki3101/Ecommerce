@@ -81,7 +81,7 @@ function ProductScreen() {
                                         </ListGroup.Item>
 
                                         <ListGroup.Item>
-                                            Price: ${product.price}
+                                            Price: &#8377; {product.price}
                                         </ListGroup.Item>
 
                                         <ListGroup.Item>
@@ -98,7 +98,7 @@ function ProductScreen() {
                                                 <Row>
                                                     <Col>Price:</Col>
                                                     <Col>
-                                                        <strong>${product.price}</strong>
+                                                        <strong>&#8377; {product.price}</strong>
                                                     </Col>
                                                 </Row>
                                             </ListGroup.Item>
@@ -136,7 +136,7 @@ function ProductScreen() {
                                             <ListGroup.Item>
                                                 <Button
                                                     onClick={addToCartHandler}
-                                                    className='btn-block'
+                                                    className='btn-block w-100'
                                                     disabled={product.countInStock == 0}
                                                     type='button'>
                                                     Add to Cart
@@ -201,6 +201,7 @@ function ProductScreen() {
                                                         disabled={loadingProductReview}
                                                         type='submit'
                                                         variant='primary'
+                                                        className='my-3'
                                                     >
                                                         Submit
                                                     </Button>

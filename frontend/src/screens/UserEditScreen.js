@@ -51,7 +51,7 @@ function UserEditScreen() {
 
     return (
         <div>
-            <Link to='/admin/userlist'>
+            <Link to='/admin/userlist' className='btn btn-light my-3'>
                 Go Back
             </Link>
 
@@ -90,7 +90,7 @@ function UserEditScreen() {
                             <Form.Group controlId='isadmin'>
                                 <Form.Check
                                     type='checkbox'
-                                    label='Is Admin'
+                                    label='Make Admin'
                                     checked={isAdmin}
                                     onChange={(e) => setIsAdmin(e.target.checked)}
                                 >

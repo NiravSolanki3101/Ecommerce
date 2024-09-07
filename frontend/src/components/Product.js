@@ -7,11 +7,12 @@ function product({product})
 {
     return(
         <Card className="p-3 rounded h-100">
-            <Link to={`/product/${product._id}`}>
-                <Card.Img src = {`${product.image}`} height="180"></Card.Img>
+            <Link to={`/product/${product._id}`} className="m-auto">
+                {/* <Card.Img src = {`${product.image}`} height="180"></Card.Img> */}
+                <Card.Img src = {`${product.image}`} style={{width: "auto", height: "200px", margin:'auto'}}></Card.Img>
             </Link>
 
-            <Card.Body>
+            <Card.Body className="mb-0">   
                 <Link to={`/product/${product._id}`} style={{ textDecoration: 'none' }}>
                     <Card.Title as="div" className="fs-6">
                         <strong>{product.name}</strong>
@@ -25,7 +26,7 @@ function product({product})
                 </Card.Text>
 
                 <Card.Text as="h5">
-                     ${product.price}
+                    &#8377; {product.price}
                 </Card.Text>
             </Card.Body>
         </Card>
